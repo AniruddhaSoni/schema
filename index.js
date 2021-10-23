@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 
 const apiRoute = require("./routes/Api");
 
+const port = process.env.PORT || 3000;
+
 app.use("/api", apiRoute);
 
 app.get("/", (req, res) => {
@@ -15,4 +17,4 @@ mongoose.connect(process.env.DB_CONNECTION, () => {
   console.log("connected to database");
 });
 
-app.listen(443);
+app.listen(port);
