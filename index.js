@@ -8,13 +8,15 @@ const apiRoute = require("./routes/Api");
 
 const port = process.env.PORT || 3000;
 
+mongoose.connect(process.env.DB_CONNECTION, () => {
+  console.log("connected to database");
+});
+
+
 app.use("/api", apiRoute);
 
 app.get("/", (req, res) => {
   res.send("I am on");
-});
-mongoose.connect(process.env.DB_CONNECTION, () => {
-  console.log("connected to database");
 });
 
 app.listen(port);
